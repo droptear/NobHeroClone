@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class Card : MonoBehaviour
 {
@@ -32,7 +33,7 @@ public class Card : MonoBehaviour
 
         _nameText.text = effect.Name;
         _descriptionText.text = effect.Description;
-        _levelText.text = $"LVL: {effect.Level}";
+        _levelText.text = $"LVL: {effect.Level + 1}";
         _iconImage.sprite = effect.Sprite;
 
         if(effect is ContinuousEffect)
@@ -48,6 +49,7 @@ public class Card : MonoBehaviour
     public void Click()
     {
         _effectManager.AddEffect(_effect);
+        _cardManager.CardНasBeenPicked.Invoke();
         _cardManager.HideCards();
     }
 }

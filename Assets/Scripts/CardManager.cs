@@ -1,8 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CardManager : MonoBehaviour
 {
+    public UnityEvent CardНasBeenPicked;
+
     [SerializeField] private GameObject _cardParent;
     [SerializeField] private Card[] _effectCards;
     [SerializeField] private EffectsManager _effectsManager;

@@ -11,6 +11,7 @@ public class Collector: MonoBehaviour
     private void OnEnable()
     {
         _experienceManager.LevelUpEvent.AddListener(OnLevelUpVisualEffect);
+        _experienceManager.EffectAddedEvent.AddListener(UnfreezePlayer);
     }
 
     private void FixedUpdate()
@@ -34,7 +35,13 @@ public class Collector: MonoBehaviour
 
     private void OnLevelUpVisualEffect()
     {
+        GetComponent<RigidbodyMove>().IsFreezed = true;
         Instantiate(_levelUpPartilesPrefab, transform.position, Quaternion.identity);
+    }
+
+    private void UnfreezePlayer()
+    {
+        GetComponent<RigidbodyMove>().IsFreezed = false;
     }
 
 #if UNITY_EDITOR

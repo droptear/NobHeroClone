@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class RigidbodyMove : MonoBehaviour
 {
+    public bool IsFreezed;
+
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private float _speed = 5.0f;
     [SerializeField] private Joystick _joystick;
@@ -12,9 +14,16 @@ public class RigidbodyMove : MonoBehaviour
 
     void Update()
     {
-        _moveInput = _joystick.Value;
-
-        _animator.SetBool("isRunning", _joystick.IsPressed);
+        if (IsFreezed)
+        {
+            _moveInput = Vector2.zero;
+            _animator.SetBool("isRunning", false);
+        }
+        else
+        {
+            _moveInput = _joystick.Value;
+            _animator.SetBool("isRunning", _joystick.IsPressed);
+        }
     }
 
     private void FixedUpdate()

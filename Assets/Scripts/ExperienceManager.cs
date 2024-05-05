@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class ExperienceManager : MonoBehaviour
 {
     public UnityEvent LevelUpEvent;
+    public UnityEvent EffectAddedEvent;
 
     [SerializeField] private float _experience = 0.0f;
     [SerializeField] private float _nextExperienceLevel;
@@ -18,7 +19,13 @@ public class ExperienceManager : MonoBehaviour
 
     private void Awake()
     {
+        _effectsManager.EffectHasBeenAdded.AddListener(OnEffectAdded);
         _nextExperienceLevel = _experienceCurve.Evaluate(0);
+    }
+
+    private void Update()
+    {
+        DisplayExperience();
     }
 
     public void AddExperience(int value)
@@ -29,7 +36,7 @@ public class ExperienceManager : MonoBehaviour
             UpLevel();
             LevelUpEvent.Invoke();
         }
-        DisplayExperience();
+        //DisplayExperience();
     }
 
     private void UpLevel()
@@ -44,6 +51,11 @@ public class ExperienceManager : MonoBehaviour
 
     private void DisplayExperience()
     {
-        _experienceScale.fillAmount = _experience / _nextExperienceLevel;
+        _experienceScale.fillAmount = Mathf.Lerp( _experienceScale.fillAmount, _experience / _nextExperienceLevel, Time.deltaTime * 3.0f);
+    }
+
+    private void OnEffectAdded()
+    {
+        EffectAddedEvent.Invoke();
     }
 }

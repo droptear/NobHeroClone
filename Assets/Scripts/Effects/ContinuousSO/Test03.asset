@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Test03
   m_EditorClassIdentifier: 
   Name: HEALTH
-  Description: American girl, american boy. Most beautiful people in the world.
+  Description: Agains your better judgement it's all behind you now.
   Sprite: {fileID: 21300000, guid: 4a2474e05616444c3bbbbf4956199f56, type: 3}
   Level: -1

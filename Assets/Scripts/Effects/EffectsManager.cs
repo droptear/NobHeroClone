@@ -1,8 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EffectsManager : MonoBehaviour
 {
+    public UnityEvent EffectHasBeenAdded;
+
     [SerializeField] private List<ContinuousEffect> _continuousEffectsApplied = new List<ContinuousEffect>();
     [SerializeField] private List<OneTimeEffect> _oneTimeEffectsApplied = new List<OneTimeEffect>();
 
@@ -13,6 +16,8 @@ public class EffectsManager : MonoBehaviour
 
     private void Awake()
     {
+        _cardManager.CardНasBeenPicked.AddListener(OnCardHasBeenPicked);
+
         for (int i = 0; i < _continuousEffects.Count; i++)
         {
             _continuousEffects[i] = Instantiate(_continuousEffects[i]);
@@ -103,5 +108,10 @@ public class EffectsManager : MonoBehaviour
         }
 
         effect.Activate();
+    }
+
+    private void OnCardHasBeenPicked()
+    {
+        EffectHasBeenAdded.Invoke();
     }
 }

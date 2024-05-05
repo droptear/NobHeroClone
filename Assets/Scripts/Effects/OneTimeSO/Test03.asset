@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Test03
   m_EditorClassIdentifier: 
   Name: HOLY SHIELD
-  Description: My wild love is riding.
+  Description: A tiger rose growing through your prison door.
   Sprite: {fileID: 21300000, guid: f1f48d3d1aa104909ae5c7d125c62a98, type: 3}
   Level: -1

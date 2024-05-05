@@ -36,7 +36,6 @@ public class ExperienceManager : MonoBehaviour
             UpLevel();
             LevelUpEvent.Invoke();
         }
-        //DisplayExperience();
     }
 
     private void UpLevel()
@@ -51,7 +50,7 @@ public class ExperienceManager : MonoBehaviour
 
     private void DisplayExperience()
     {
-        _experienceScale.fillAmount = Mathf.Lerp( _experienceScale.fillAmount, _experience / _nextExperienceLevel, Time.deltaTime * 3.0f);
+        _experienceScale.fillAmount = Mathf.Lerp( _experienceScale.fillAmount, _experience / _nextExperienceLevel, Time.deltaTime * 4.5f);
     }
 
     private void OnEffectAdded()

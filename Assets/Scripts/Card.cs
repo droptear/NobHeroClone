@@ -49,7 +49,7 @@ public class Card : MonoBehaviour
     public void Click()
     {
         _effectManager.AddEffect(_effect);
-        _cardManager.CardНasBeenPicked.Invoke();
+        _effectManager.EffectHasBeenAdded.Invoke();
         _cardManager.HideCards();
     }
 }

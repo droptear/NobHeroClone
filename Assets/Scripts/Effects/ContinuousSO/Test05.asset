@@ -13,9 +13,7 @@ MonoBehaviour:
   m_Name: Test05
   m_EditorClassIdentifier: 
   Name: MOVING EARTH
-  Description: 'Not to touch the earth, not to see the sun.
-
-    Nothing left to
-    do but run, run, run.'
+  Description: Not to touch the earth, not to see the sun. Nothing left to do but
+    run, run, run.
   Sprite: {fileID: 21300000, guid: cd4ffc484aa464720bdb2a0b0dbe1f71, type: 3}
   Level: -1

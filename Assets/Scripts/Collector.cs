@@ -5,13 +5,19 @@ public class Collector: MonoBehaviour
     [SerializeField] private float _pickUpDistance = 2.0f;
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private ParticleSystem _levelUpPartilesPrefab;
-
     [SerializeField] private ExperienceManager _experienceManager;
+
+    private RigidbodyMove _rigidbodyMove;
 
     private void OnEnable()
     {
-        _experienceManager.LevelUpEvent.AddListener(OnLevelUpVisualEffect);
-        _experienceManager.EffectAddedEvent.AddListener(UnfreezePlayer);
+        _experienceManager.LevelUpEvent.AddListener(OnLevelUp);
+        _experienceManager.EffectAddedEvent.AddListener(OnEffectAdded);
+    }
+
+    private void Start()
+    {
+        _rigidbodyMove = GetComponent<RigidbodyMove>();
     }
 
     private void FixedUpdate()
@@ -33,15 +39,15 @@ public class Collector: MonoBehaviour
         _experienceManager.AddExperience(value);
     }
 
-    private void OnLevelUpVisualEffect()
+    private void OnLevelUp()
     {
-        GetComponent<RigidbodyMove>().IsFreezed = true;
+        _rigidbodyMove.SetMoveability(false);
         Instantiate(_levelUpPartilesPrefab, transform.position, Quaternion.identity);
     }
 
-    private void UnfreezePlayer()
+    private void OnEffectAdded()
     {
-        GetComponent<RigidbodyMove>().IsFreezed = false;
+        _rigidbodyMove.SetMoveability(true);
     }
 
 #if UNITY_EDITOR

@@ -2,27 +2,31 @@ using UnityEngine;
 
 public class RigidbodyMove : MonoBehaviour
 {
-    public bool IsFreezed;
-
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private float _speed = 5.0f;
     [SerializeField] private Joystick _joystick;
     [SerializeField] private Animator _animator;
     [SerializeField] private float _rotationDamp;
 
+    private bool _isMovable = true;
     private Vector2 _moveInput;
 
-    void Update()
+    public void SetMoveability(bool value)
     {
-        if (IsFreezed)
-        {
-            _moveInput = Vector2.zero;
-            _animator.SetBool("isRunning", false);
-        }
-        else
+        _isMovable = value;
+    }
+
+    private void Update()
+    {
+        if (_isMovable)
         {
             _moveInput = _joystick.Value;
             _animator.SetBool("isRunning", _joystick.IsPressed);
+        }
+        else
+        {
+            _moveInput = Vector2.zero;
+            _animator.SetBool("isRunning", false);
         }
     }
 

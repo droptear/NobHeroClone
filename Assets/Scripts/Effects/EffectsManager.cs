@@ -16,7 +16,7 @@ public class EffectsManager : MonoBehaviour
 
     private void Awake()
     {
-        _cardManager.CardНasBeenPicked.AddListener(OnCardHasBeenPicked);
+        //_cardManager.CardНasBeenPicked.AddListener(OnCardHasBeenPicked);
 
         for (int i = 0; i < _continuousEffects.Count; i++)
         {
@@ -30,7 +30,7 @@ public class EffectsManager : MonoBehaviour
 
     public void ShowCardsWithDelay()
     {
-        Invoke(nameof(ShowCards), 1.8f);
+        Invoke(nameof(ShowCards), 1.2f);
     }
 
     private void ShowCards()
@@ -108,10 +108,5 @@ public class EffectsManager : MonoBehaviour
         }
 
         effect.Activate();
-    }
-
-    private void OnCardHasBeenPicked()
-    {
-        EffectHasBeenAdded.Invoke();
     }
 }

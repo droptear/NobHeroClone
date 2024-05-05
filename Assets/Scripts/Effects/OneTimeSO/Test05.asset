@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afecfa21efc7e432fbb06d4f87553707, type: 3}
   m_Name: Test05
   m_EditorClassIdentifier: 
-  Name: TEST NAME
-  Description: Hello, I love you, want you tell me your name?
+  Name: COUNTRY DOWN
+  Description: There's no frame around your picture, just a view through your fron
+    door.
   Sprite: {fileID: 21300000, guid: cd4ffc484aa464720bdb2a0b0dbe1f71, type: 3}
   Level: -1

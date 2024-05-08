@@ -13,25 +13,20 @@ MonoBehaviour:
   m_Name: Chapter 0
   m_EditorClassIdentifier: 
   EnemyWavesArray:
-  - Enemy: {fileID: 0}
-    SpawnRatesPerSecond: []
-  - Enemy: {fileID: 0}
-    SpawnRatesPerSecond: []
-  - Enemy: {fileID: 0}
-    SpawnRatesPerSecond: []
-  - Enemy: {fileID: 0}
-    SpawnRatesPerSecond: []
-  - Enemy: {fileID: 0}
-    SpawnRatesPerSecond: []
-  - Enemy: {fileID: 0}
-    SpawnRatesPerSecond: []
-  - Enemy: {fileID: 0}
-    SpawnRatesPerSecond: []
-  - Enemy: {fileID: 0}
-    SpawnRatesPerSecond: []
-  - Enemy: {fileID: 0}
-    SpawnRatesPerSecond: []
-  - Enemy: {fileID: 0}
-    SpawnRatesPerSecond: []
-  - Enemy: {fileID: 0}
-    SpawnRatesPerSecond: []
+  - Enemy: {fileID: 1610925376893454177, guid: 6f11c746e99df4de5a712a33eafa8d97, type: 3}
+    SpawnRatesPerSecond:
+    - 0.6
+    - 0.7
+    - 1
+    - 1.5
+    - 1.7
+    - 2
+  - Enemy: {fileID: 3055549039893935643, guid: 4988ea5e9df704133bc1ac9a5d1a76db, type: 3}
+    SpawnRatesPerSecond:
+    - 0
+    - 0
+    - 0
+    - 1
+    - 1
+    - 1
+    - 1

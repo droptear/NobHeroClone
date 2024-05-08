@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private Transform _playerTransform;
     [SerializeField] private float _minSpeed = 1.8f;
     [SerializeField] private float _maxSpeed = 3.0f;
     [SerializeField] private Rigidbody _rigidbody;
@@ -10,11 +9,17 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float _attackPeriod = 1.0f;
     [SerializeField] private float _damagePerSecond;
 
+    private Transform _playerTransform;
+    private PlayerHealth _playerHealth;
     private float _speed;
     private float _attackTimer;
-    private PlayerHealth _playerHealth;
 
-    void Start()
+    public void Init(Transform playerTransform)
+    {
+        _playerTransform = playerTransform;
+    }
+
+    private void Start()
     {
         _speed = Random.Range(_minSpeed, _maxSpeed);
     }
@@ -41,6 +46,11 @@ public class Enemy : MonoBehaviour
 
             transform.rotation = Quaternion.Lerp(transform.rotation, towardPlayerRotation, Time.deltaTime * _rotationDamp);
             _rigidbody.velocity = transform.forward * _speed;
+
+            if(towardPlayer.magnitude > 32.0f)
+            {
+                transform.position += towardPlayer * 1.95f;
+            }
         }
     }
 

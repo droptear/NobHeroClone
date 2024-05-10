@@ -10,12 +10,7 @@ public class EnemyManager : MonoBehaviour
 
     private List<Enemy> _enemyList = new List<Enemy>();
 
-    private void Start()
-    {
-        StartNewWave(5);   
-    }
-
-    private void StartNewWave(int wave)
+    public void StartNewWave(int wave)
     {
         StopAllCoroutines();
 

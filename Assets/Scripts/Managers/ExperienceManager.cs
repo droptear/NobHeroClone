@@ -15,7 +15,7 @@ public class ExperienceManager : MonoBehaviour
     [SerializeField] private EffectsManager _effectsManager;
     [SerializeField] private AnimationCurve _experienceCurve;
 
-    private int _level;
+    private int _level = -1;
 
     private void Awake()
     {
@@ -38,7 +38,7 @@ public class ExperienceManager : MonoBehaviour
         }
     }
 
-    private void UpLevel()
+    public void UpLevel()
     {
         _level++;
         _experience = 0.0f;

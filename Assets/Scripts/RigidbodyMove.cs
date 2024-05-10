@@ -8,7 +8,9 @@ public class RigidbodyMove : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private float _rotationDamp;
 
-    private bool _isMovable = true;
+    [SerializeField] private Transform _rotationPoint;
+
+    private bool _isMovable;
     private Vector2 _moveInput;
 
     public void SetMoveability(bool value)
@@ -28,16 +30,22 @@ public class RigidbodyMove : MonoBehaviour
             _moveInput = Vector2.zero;
             _animator.SetBool("isRunning", false);
         }
+
+        if (_rigidbody.velocity != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(_rigidbody.velocity, Vector3.up);
+            _rotationPoint.rotation = Quaternion.Lerp(_rotationPoint.rotation, targetRotation, Time.deltaTime * _rotationDamp);
+        }
     }
 
     private void FixedUpdate()
     {
         _rigidbody.velocity = new Vector3(_moveInput.x, 0.0f, _moveInput.y) * _speed;
 
-        if(_rigidbody.velocity != Vector3.zero)
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(_rigidbody.velocity, Vector3.up);
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * _rotationDamp);
-        }
+        //if(_rigidbody.velocity != Vector3.zero)
+        //{
+        //    Quaternion targetRotation = Quaternion.LookRotation(_rigidbody.velocity, Vector3.up);
+        //    transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * _rotationDamp);
+        //}
     }
 }

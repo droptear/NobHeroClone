@@ -7,6 +7,7 @@ public class PlayerHealth : MonoBehaviour
 
     private float _currentHealth;
     private GameStateManager _gameStateManager;
+    private bool _isDead;
 
     public event Action<float, float> OnHealthChange;
     public event Action OnDie;
@@ -23,11 +24,14 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float value)
     {
-        float newHealth = Mathf.Max(_currentHealth - value, 0.0f);
-        SetHealth(newHealth);
-        if (newHealth == 0.0f)
+        if(_isDead == false)
         {
-            Die();
+            float newHealth = Mathf.Max(_currentHealth - value, 0.0f);
+            SetHealth(newHealth);
+            if (newHealth == 0.0f)
+            {
+                Die();
+            }
         }
     }
 
@@ -39,6 +43,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
+        _isDead = true;
         OnDie?.Invoke();
         _gameStateManager.SetLoseState();
     }

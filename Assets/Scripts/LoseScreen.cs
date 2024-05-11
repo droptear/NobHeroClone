@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class LoseScreen: MonoBehaviour
 {
     [SerializeField] private Button _tryAgainButton;
+    [SerializeField] private float _delayOnApperance;
 
     private void OnEnable()
     {

@@ -10,16 +10,11 @@ public class PlayerHealthBar : MonoBehaviour
 
     private float _currentHealth;
     private float _maxHealth;
-    private float _visualUpdateTime = 1.0f;
+    private float _visualUpdateTime = 0.8f;
 
     private void OnEnable()
     {
         _playerHealth.OnHealthChange += UpdateHealthData;
-    }
-
-    private void Update()
-    {
-        //_healhScale.fillAmount = Mathf.Lerp(_healhScale.fillAmount, _currentHealth / _maxHealth, Time.deltaTime);
     }
 
     private void OnDisable()
@@ -36,11 +31,13 @@ public class PlayerHealthBar : MonoBehaviour
 
     private IEnumerator UpdateHealthBarVisual()
     {
-        for (float t = 0; t < _visualUpdateTime; t += 0.01f)
+        float currentHealthbarValue = _healhScale.fillAmount;
+        float targetHealthbarValue = _currentHealth / _maxHealth;
+        for (float t = 0; t < _visualUpdateTime; t += Time.deltaTime)
         {
-            _healhScale.fillAmount = Mathf.Lerp(_healhScale.fillAmount, _currentHealth / _maxHealth, t);
+            _healhScale.fillAmount = Mathf.Lerp(currentHealthbarValue, targetHealthbarValue, t / _visualUpdateTime);
             yield return null;
         }
-        _healhScale.fillAmount = _currentHealth / _maxHealth;
+        //_healhScale.fillAmount = _currentHealth / _maxHealth;
     }
 }

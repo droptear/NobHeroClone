@@ -791,12 +791,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e4d401b99b054f5babd01c1875865b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rigidbody: {fileID: 266534442}
-  _speed: 5
+  _speed: 5.6
   _joystick: {fileID: 291932001}
   _animator: {fileID: 912712492}
-  _rotationDamp: 4
   _rotationPoint: {fileID: 109986138}
+  _rotationDamp: 4
 --- !u!54 &266534442
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2710,6 +2709,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameStateManager: {fileID: 245496208}
   _playerHealth: {fileID: 266534448}
+  _rigidbodyMove: {fileID: 266534441}
 --- !u!4 &723898562
 Transform:
   m_ObjectHideFlags: 0
@@ -2854,14 +2854,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 770736353}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.30359963, y: -0, z: -0, w: 0.9527997}
+  m_LocalRotation: {x: 0.4848096, y: 0, z: 0, w: 0.8746197}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 330585546}
   m_Father: {fileID: 1732058659}
-  m_LocalEulerAnglesHint: {x: 35.348, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 58, y: 0, z: 0}
 --- !u!1 &794135367
 GameObject:
   m_ObjectHideFlags: 0
@@ -3485,6 +3485,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _loseScreen: {fileID: 1384914174}
+  _delayOfApperance: 1.8
 --- !u!1 &883515928
 GameObject:
   m_ObjectHideFlags: 0
@@ -4733,6 +4734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tryAgainButton: {fileID: 1446582336}
+  _delayOnApperance: 1.2
 --- !u!1 &1432725820
 GameObject:
   m_ObjectHideFlags: 0

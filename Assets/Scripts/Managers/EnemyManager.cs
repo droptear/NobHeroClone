@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
@@ -39,11 +40,25 @@ public class EnemyManager : MonoBehaviour
         Vector2 randomPoint = Random.insideUnitCircle.normalized;
         Vector3 position = new Vector3(randomPoint.x, 0.0f, randomPoint.y) * _creationAreaRadius + _playerTransform.position;
         Enemy newEnemy = Instantiate(enemy, position, Quaternion.identity);
-        newEnemy.Init(_playerTransform);
+        newEnemy.Init(_playerTransform, this);
         _enemyList.Add(newEnemy);
     }
 
-    private void Remove(Enemy enemy)
+    public Enemy[] GetNearestEnemies(Vector3 point, int number)
+    {
+        List<Enemy> enemiesNearby = _enemyList.OrderBy(x => Vector3.Distance(point, x.transform.position)).ToList();
+        int numberToReturn = Mathf.Min(number, enemiesNearby.Count);
+
+        Enemy[] nearbyEnemiesArray = new Enemy[numberToReturn];
+        for (int i = 0; i < numberToReturn; i++)
+        {
+            nearbyEnemiesArray[i] = enemiesNearby[i];
+        }
+
+        return nearbyEnemiesArray;
+    }
+
+    public void RemoveFromList(Enemy enemy)
     {
         _enemyList.Remove(enemy);
     }

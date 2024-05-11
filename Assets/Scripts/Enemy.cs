@@ -8,15 +8,19 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float _rotationDamp;
     [SerializeField] private float _attackPeriod = 1.0f;
     [SerializeField] private float _damagePerSecond;
+    [SerializeField] private float _health = 50.0f;
+    [SerializeField] private ParticleSystem _particles;
 
+    private EnemyManager _enemyManager;
     private Transform _playerTransform;
     private PlayerHealth _playerHealth;
     private float _speed;
     private float _attackTimer;
 
-    public void Init(Transform playerTransform)
+    public void Init(Transform playerTransform, EnemyManager enemyManager)
     {
         _playerTransform = playerTransform;
+        _enemyManager = enemyManager;
     }
 
     private void Start()
@@ -68,5 +72,22 @@ public class Enemy : MonoBehaviour
         {
             _playerHealth = null;
         }
+    }
+
+    public void ApplyDamage(float value)
+    {
+        _health -= value;
+        if(_health <= 0.0f)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        _particles.Play();
+        Debug.Log("Particles supposed to be played.");
+        _enemyManager.RemoveFromList(this);
+        Destroy(gameObject); 
     }
 }

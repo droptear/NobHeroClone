@@ -10,7 +10,7 @@ public class PlayerHealthBar : MonoBehaviour
 
     private float _currentHealth;
     private float _maxHealth;
-    private float _visualUpdateTime = 0.8f;
+    private float _visualUpdateTime = 0.6f;
 
     private void OnEnable()
     {
@@ -38,6 +38,6 @@ public class PlayerHealthBar : MonoBehaviour
             _healhScale.fillAmount = Mathf.Lerp(currentHealthbarValue, targetHealthbarValue, t / _visualUpdateTime);
             yield return null;
         }
-        //_healhScale.fillAmount = _currentHealth / _maxHealth;
+        _healhScale.fillAmount = _currentHealth / _maxHealth;
     }
 }

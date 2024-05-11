@@ -18,7 +18,7 @@ public class GameStateManager : MonoBehaviour
         _actionState.Init(this);
         _pauseState?.Init(this);
         _winState?.Init(this);
-        _loseState?.Init(this);
+        _loseState.Init(this);
 
         SetGameState(_mainMenuState);
     }

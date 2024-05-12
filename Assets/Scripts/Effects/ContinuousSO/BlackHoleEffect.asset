@@ -9,10 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6776e8464cd3c417a9631f0963470cd2, type: 3}
-  m_Name: Test01
+  m_Script: {fileID: 11500000, guid: aff36437967274b3caea6fee9ed6b4ec, type: 3}
+  m_Name: BlackHoleEffect
   m_EditorClassIdentifier: 
-  Name: FROST
-  Description: I'm freezin'...
+  Name: BLACKHOLE
+  Description: Black Hole
   Sprite: {fileID: 21300000, guid: 26a260624015a4aabb2c1bc9d048ffaa, type: 3}
   Level: -1
+  _cooldownTime: 6
+  _blackHolePrefab: {fileID: 739254389594732604, guid: b9435362674fe49bbb1a047674a79598,
+    type: 3}

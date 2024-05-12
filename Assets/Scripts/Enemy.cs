@@ -5,6 +5,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float _minSpeed = 1.8f;
     [SerializeField] private float _maxSpeed = 3.0f;
     [SerializeField] private Rigidbody _rigidbody;
+    [SerializeField] private Transform _rotationPoint;
     [SerializeField] private float _rotationDamp;
     [SerializeField] private float _attackPeriod = 1.0f;
     [SerializeField] private float _damagePerSecond;
@@ -39,22 +40,25 @@ public class Enemy : MonoBehaviour
                 _attackTimer = 0.0f;
             }
         }
+
+        if(_playerTransform)
+        {
+            Vector3 towardPlayer = _playerTransform.position - transform.position;
+            Quaternion towardPlayerRotation = Quaternion.LookRotation(towardPlayer, Vector3.up);
+            transform.rotation = Quaternion.Lerp(_rotationPoint.rotation, towardPlayerRotation, Time.deltaTime * _rotationDamp);
+
+            if(towardPlayer.magnitude > 32.0f)
+            {
+                transform.position += towardPlayer * 1.95f;
+            }
+        }
     }
 
     private void FixedUpdate()
     {
         if (_playerTransform)
         {
-            Vector3 towardPlayer = _playerTransform.position - transform.position;
-            Quaternion towardPlayerRotation = Quaternion.LookRotation(towardPlayer, Vector3.up);
-
-            transform.rotation = Quaternion.Lerp(transform.rotation, towardPlayerRotation, Time.deltaTime * _rotationDamp);
             _rigidbody.velocity = transform.forward * _speed;
-
-            if(towardPlayer.magnitude > 32.0f)
-            {
-                transform.position += towardPlayer * 1.95f;
-            }
         }
     }
 
@@ -74,6 +78,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public void RemoveFromList()
+    {
+        _enemyManager.RemoveFromList(this);
+    }
+
     public void ApplyDamage(float value)
     {
         _health -= value;
@@ -86,7 +95,7 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         _particles.Play();
-        Debug.Log("Particles supposed to be played.");
+        Debug.Log("Particles supposed to be played, yo...");
         _enemyManager.RemoveFromList(this);
         Destroy(gameObject); 
     }

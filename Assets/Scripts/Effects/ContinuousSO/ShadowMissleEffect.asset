@@ -17,6 +17,6 @@ MonoBehaviour:
   Sprite: {fileID: 21300000, guid: 21d5797c79e51454287af9c2a003a43e, type: 3}
   Level: -1
   _cooldownTime: 2
-  _shadowMissleFrefab: {fileID: 6411133309318579666, guid: 835010e46e45e4385b6fb389925e89fb,
+  _shadowMisslePrefab: {fileID: 6411133309318579666, guid: 835010e46e45e4385b6fb389925e89fb,
     type: 3}
   _projectileSpeed: 7

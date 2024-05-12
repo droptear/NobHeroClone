@@ -32,10 +32,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7091826367529994367}
-  - {fileID: 8993352107078766764}
-  - {fileID: 6928744434565325719}
-  - {fileID: 5990723128807213183}
+  - {fileID: 8377640954153703803}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1610925376893454177
@@ -53,6 +50,7 @@ MonoBehaviour:
   _minSpeed: 1.8
   _maxSpeed: 3
   _rigidbody: {fileID: 5154430505030343140}
+  _rotationPoint: {fileID: 8377640954153703803}
   _rotationDamp: 3
   _attackPeriod: 1
   _damagePerSecond: 20
@@ -131,12 +129,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5598664283032858376}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1763097159406865394}
+  m_Father: {fileID: 8377640954153703803}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &4020433892950652365
 SphereCollider:
@@ -185,12 +183,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6663764669242680343}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.95, y: 1.95, z: 1.95}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1763097159406865394}
+  m_Father: {fileID: 8377640954153703803}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &4400038212886243928
 SphereCollider:
@@ -227,13 +225,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minRadius: 1.9
   _maxRadius: 2.5
+--- !u!1 &8218098485155330857
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8377640954153703803}
+  m_Layer: 8
+  m_Name: RotationPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8377640954153703803
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8218098485155330857}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7091826367529994367}
+  - {fileID: 8993352107078766764}
+  - {fileID: 6928744434565325719}
+  - {fileID: 5990723128807213183}
+  m_Father: {fileID: 1763097159406865394}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2906218003061725688
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1763097159406865394}
+    m_TransformParent: {fileID: 8377640954153703803}
     m_Modifications:
     - target: {fileID: 8765871830507392035, guid: a76161fe5e4d2c447965f3a0c359e851,
         type: 3}
@@ -293,17 +326,17 @@ PrefabInstance:
     - target: {fileID: 8896763285854196103, guid: a76161fe5e4d2c447965f3a0c359e851,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8896763285854196103, guid: a76161fe5e4d2c447965f3a0c359e851,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8896763285854196103, guid: a76161fe5e4d2c447965f3a0c359e851,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8896763285854196103, guid: a76161fe5e4d2c447965f3a0c359e851,
         type: 3}
@@ -343,7 +376,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1763097159406865394}
+    m_TransformParent: {fileID: 8377640954153703803}
     m_Modifications:
     - target: {fileID: 6765917506156686860, guid: 06d0c353705d184468955ad3c8c25874,
         type: 3}

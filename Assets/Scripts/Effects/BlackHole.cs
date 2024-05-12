@@ -8,6 +8,13 @@ public class BlackHole : MonoBehaviour
     [SerializeField] private float _timeBeforeCollapse;
     [SerializeField] private float _collapseTime;
 
+    private Collider _collider;
+
+    private void OnEnable()
+    {
+        _collider = GetComponent<Collider>();
+    }
+
     private void Start()
     {
         StartCoroutine(LifeCycle());
@@ -27,7 +34,9 @@ public class BlackHole : MonoBehaviour
 
     private IEnumerator LifeCycle()
     {
-        yield return new WaitForSecondsRealtime(3.5f);
+        yield return new WaitForSecondsRealtime(_timeBeforeCollapse);
+        _collider.enabled = false;
+
         for (float t = 0; t < _collapseTime; t += Time.unscaledDeltaTime)
         {
             Vector3 currentScale = _bodyParticles.transform.localScale;
